@@ -4,7 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
-
+    <bean name="provider" class="yncrea.lab02.provider.CNFProvider"></bean>
+    <bean name="service" class="yncrea.lab02.core.service.impl.QuoteServiceImpl">
+        <constructor-arg ref="provider"/>
+    </bean>
+    <bean name="app" class="yncrea.lab02.app.QuoteApplication">
+        <constructor-arg ref="service"/>
+    </bean>
 
 </beans>
